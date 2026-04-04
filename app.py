@@ -10,9 +10,9 @@ st.title("🔧 Predictive Maintenance System")
 st.sidebar.header("Choose Input Method")
 option = st.sidebar.radio("Select", ["Manual Input", "Upload CSV"])
 
-# ==============================
-# 🔹 Manual Input Section
-# ==============================
+
+#  Manual Input Section
+
 if option == "Manual Input":
     st.subheader("Enter Machine Parameters")
 
@@ -39,9 +39,9 @@ if option == "Manual Input":
         st.write(f"No Failure Probability: {prob[0][0] * 100:.2f}%")
         st.write(f"Failure Probability: {prob[0][1] * 100:.2f}%")
 
-# ==============================
+
 # 🔹 CSV Upload Section
-# ==============================
+
 elif option == "Upload CSV":
     st.subheader("Upload CSV File")
 
@@ -56,7 +56,7 @@ elif option == "Upload CSV":
 
         # Check columns
         if not all(col in data.columns for col in required_cols):
-            st.error("❌ CSV must contain required columns!")
+            st.error("CSV must contain required columns!")
         else:
             # Keep only required columns
             data = data[required_cols]
@@ -68,7 +68,7 @@ elif option == "Upload CSV":
                 predictions = model.predict(data)
                 data["Prediction"] = predictions
 
-                st.success("✅ Prediction Completed")
+                st.success("Prediction Completed")
 
                 st.write(data.head())
 
