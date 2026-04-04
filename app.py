@@ -19,8 +19,8 @@ if option == "Manual Input":
     # Inputs
     type_input = st.selectbox("Type", ["L", "M", "H"])
     tool_wear = st.number_input("Tool wear [min]")
-    temp_diff = st.number_input("Temperature Difference")
-    power = st.number_input("Mechanical Power [W]")
+    temp_diff = st.number_input("Temperature Difference(Process_temp-Air_temp)")
+    power = st.number_input("Mechanical Power [W] (Torque* Rot_speed)")
 
     if st.button("Predict"):
         # Create dataframe
